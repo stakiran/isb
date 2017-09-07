@@ -11,14 +11,14 @@ $(function(){
             var count = get_all_count();
         } else {
             $('#search_target_area li').hide();
-            var count = $('#search_target_area li:contains(' + this.value + ')').show().length;
+            var count = $('#search_target_area .bookmark-entry:contains(' + this.value + ')').show().length;
         }
         $('strong').text(count);
     });
     $('strong').text(get_all_count());
 });
 function get_all_count(){
-    return $('#search_target_area li').show().length;
+    return $('#search_target_area .bookmark-entry').show().length;
 }
 </script>
 

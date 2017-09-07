@@ -88,7 +88,7 @@ for i,line in enumerate(lines):
     if line[0]=='-':
         # '- Title, URL Keywords...'
         #
-        # '<li><a href="URL">Title</a> Keywords</li>'
+        # '<li class="bookmark-entry"><a href="URL">Title</a> Keywords</li>'
         body = line[1:].strip()
         title, rest   = body.split(',', 1)
 
@@ -100,7 +100,7 @@ for i,line in enumerate(lines):
         else:
             url = rest
             keywords = ''
-        outline = '<li><a href="{:}">{:}</a> {:}</li>'.format(
+        outline = '<li class="bookmark-entry"><a href="{:}">{:}</a> {:}</li>'.format(
             url, title, keywords
         )
         outlines.append(outline)
