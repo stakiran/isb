@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>My Bookmarks</title>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    $('#searchbox').keyup(function(){
+        console.log($('#search_target_area li'));
+        if (!$(this).val()) {
+            var count = get_all_count();
+        } else {
+            $('#search_target_area li').hide();
+            var count = $('#search_target_area li:contains(' + this.value + ')').show().length;
+        }
+        $('strong').text(count);
+    });
+    $('strong').text(get_all_count());
+});
+function get_all_count(){
+    return $('#search_target_area li').show().length;
+}
+</script>
+
+<style type="text/css">
+li{
+    margin: 1px 1px 1px 1px;
+}
+
+</style>
+
+</head>
+<body>
+<input id="searchbox" type="text" size="20">
+<p>Result:<strong></strong> items</p>
+<hr>
+<div id="search_target_area">
+<h1>Search</h1>
+<li>Google系</li>
+<li><a href="https://www.google.co.jp/">Google(ja)</a> nihongo japanese</li>
+<li><a href="https://www.google.co.jp/webhp?hl=en">Google(en)</a> eigo english</li>
+<li><a href="https://www.yahoo.co.jp/">Yahoo! Japan</a> yahoo</li>
+<li><a href="https://twitter.com/search">Twitter Search</a> twitter tweet</li>
+<h1>My Accounts</h1>
+<li><a href="https://github.com/stakiran">GitHub</a> gh github</li>
+<li><a href="http://qiita.com/sta">Qiita</a> qiita</li>
+</div>
+</body>
+</html>
