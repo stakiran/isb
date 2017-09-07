@@ -15,7 +15,10 @@ $(function(){
         }
         $('strong').text(count);
     });
+
     $('strong').text(get_all_count());
+    $('#searchbox').val('');
+    $('#searchbox').focus();
 });
 function get_all_count(){
     return $('#search_target_area .bookmark-entry').show().length;
