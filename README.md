@@ -30,7 +30,7 @@ IE のみサポートするウェブサイトやシステムを多数扱う必�
 
 ↓
 
-[index.html](index.html) こんなファイルが生成されます。[GitHub Pages](https://stakiran.github.io/isb/index.html) にも置いてます。
+[index.html](index.html) こんなファイルが生成されます。サンプルは [GitHub Pages](https://stakiran.github.io/isb/index.html) にも置いてます。
 
 ## How to build
 - (1) linklist.md にブックマークを書く
@@ -67,7 +67,7 @@ IE のみサポートするウェブサイトやシステムを多数扱う必�
 
 ## FAQ
 
-### Q: 生成された HTML を IE で開くと警告が出て動作しない
+### Q: 生成された HTML をローカルで IE で開くと警告が出て動作しない
 A: インターネットオプション > 詳細設定タブ > セキュリティ の「マイコンピュータのファイルでのアクティブコンテンツの実行を許可する」をオンにしてください。
 
 ## License
