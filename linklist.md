@@ -17,9 +17,9 @@
 * Google系
 - Google(ja),https://www.google.co.jp/ nihongo japanese
 - Google(en),https://www.google.co.jp/webhp?hl=en eigo english
-- Yahoo! Japan,https://www.yahoo.co.jp/ yahoo
-- Twitter Search,https://twitter.com/search twitter tweet
+- Yahoo! Japan,https://www.yahoo.co.jp/
+- Twitter Search,https://twitter.com/search
 
 # My Accounts
-- GitHub,https://github.com/stakiran gh github
-- Qiita,http://qiita.com/sta qiita
+- GitHub,https://github.com/stakiran gh
+- Qiita,http://qiita.com/sta
