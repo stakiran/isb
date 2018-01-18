@@ -5,26 +5,23 @@ import sys
 
 def file2list(filepath):
     ret = []
-    with open(filepath, 'r') as f:
+    with open(filepath, encoding='utf8', mode='r') as f:
         ret = [line.rstrip('\n') for line in f.readlines()]
     return ret
 
 def list2file(filepath, ls):
-    with open(filepath, 'w') as f:
-        f.writelines(['%s\n' % line for line in ls] )
+    with open(filepath, encoding='utf8', mode='w') as f:
+        f.writelines(['{:}\n'.format(line) for line in ls] )
 
 def file2str(filepath):
     ret = None
-    with open(filepath, 'r') as f:
+    with open(filepath, encoding='utf8', mode='r') as f:
         ret = f.read()
     return ret
 
-def str2file(filepath, rawstr):
-    with open(filepath, 'w') as f:
-        f.write(rawstr)
-
-def terminalencoding2utf8(bytestr):
-    return bytestr.decode(sys.stdin.encoding).encode('utf8')
+def str2file(filepath, s):
+    with open(filepath, encoding='utf8', mode='w') as f:
+        f.write(s)
 
 def raise_option_error(msg, lineno, line):
     raise RuntimeError('{0} at line {1}, "{2}".'.format(msg, lineno, line))

@@ -10,7 +10,7 @@ Incremental Searchable Bookmarks.
   - [How to build](#how-to-build)
   - [linklist.md のフォーマット](#linklistmd-のフォーマット)
   - [FAQ](#faq)
-    - [Q: 生成された HTML を IE で開くと警告が出て動作しない](#q-生成された-html-を-ie-で開くと警告が出て動作しない)
+    - [Q: 生成された HTML をローカルで IE で開くと警告が出て動作しない](#q-生成された-html-をローカルで-ie-で開くと警告が出て動作しない)
   - [License](#license)
   - [Author](#author)
 
@@ -23,7 +23,7 @@ Markdown 形式で URL とコメントを書いといて、それをビルドし
 IE のみサポートするウェブサイトやシステムを多数扱う必要があるが、IE のブックマーク管理機能は非常に使いづらい（Firefox とは段違いである）。代替手段が欲しかった。
 
 ## Requirement
-- Python 2.7
+- Python 3 (Tested on Python 3.6 and Windows 7+)
 
 ## Demo
 [linklist.md](linklist.md) こんなファイルを書いてビルドすると、
