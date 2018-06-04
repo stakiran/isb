@@ -11,7 +11,6 @@ Incremental Searchable Bookmarks.
   - [linklist.md のフォーマット](#linklistmd-のフォーマット)
   - [FAQ](#faq)
     - [Q: 生成された HTML をローカルで IE で開くと警告が出て動作しない](#q-生成された-html-をローカルで-ie-で開くと警告が出て動作しない)
-    - [Q: 生成された HTML のキーワード欄に「小文字化された項目名」が追加されているのはなぜ？](#q-生成された-html-のキーワード欄に小文字化された項目名が追加されているのはなぜ)
   - [License](#license)
   - [Author](#author)
 
@@ -24,7 +23,7 @@ Markdown 形式で URL とコメントを書いといて、それをビルドし
 IE のみサポートするウェブサイトやシステムを多数扱う必要があるが、IE のブックマーク管理機能は非常に使いづらい（Firefox とは段違いである）。代替手段が欲しかった。
 
 ## Requirement
-- Python 3 (Tested on Python 3.6 and Windows 7+)
+- Python3 (動作確認は Python3.6 on Windows7/10)
 
 ## Demo
 [linklist.md](linklist.md) こんなファイルを書いてビルドすると、
@@ -70,9 +69,6 @@ IE のみサポートするウェブサイトやシステムを多数扱う必�
 
 ### Q: 生成された HTML をローカルで IE で開くと警告が出て動作しない
 A: インターネットオプション > 詳細設定タブ > セキュリティ の「マイコンピュータのファイルでのアクティブコンテンツの実行を許可する」をオンにしてください。
-
-### Q: 生成された HTML のキーワード欄に「小文字化された項目名」が追加されているのはなぜ？
-A: 小文字でも検索にヒットさせるためです。
 
 ## License
 [MIT License](LICENSE)

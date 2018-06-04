@@ -89,20 +89,14 @@ for i,line in enumerate(lines):
         body = line[1:].strip()
         title, rest   = body.split(',', 1)
 
-        # case-sensitive に検索できるよう小文字版を keyword に加えておく.
-        # (本当はテンプレート中で実装したかったが良い実装案が無く, 泣く泣く...)
-        lower_title   = title.lower()
-
         # これしないと Title と URL の間のスペースが次の split 時にひっかかる.
         rest = rest.strip()
 
         if rest.find(' ')!=-1:
             url, keywords = rest.split(' ', 1)
-            keywords += ' {:}'.format(lower_title)
         else:
             url = rest
             keywords = ''
-            keywords += ' {:}'.format(lower_title)
         outline = '<li class="bookmark-entry"><a href="{:}">{:}</a> {:}</li>'.format(
             url, title, keywords
         )

@@ -6,24 +6,41 @@
 <script type="text/javascript">
 $(function(){
     $('#searchbox').keyup(function(){
-        console.log($('#search_target_area li'));
         if (!$(this).val()) {
             var count = get_all_count();
         } else {
             $('#search_target_area li').hide();
-            var count = $('#search_target_area .bookmark-entry:contains(' + this.value + ')').show().length;
+            var keywords = split_search_query(this.value);
+            // AND search with space-delim.
+            // No case-sensitive.
+            var count = $('#search_target_area .bookmark-entry').filter(function(){
+                var text = $(this).text().toLowerCase();
+                var are_all_included = true;
+                for(var i=0; i<keywords.length; i++){
+                    var keyword = keywords[i].toLowerCase();
+                    if(text.indexOf(keyword) == -1){
+                        are_all_included = false;
+                        break;
+                    }
+                }
+                return are_all_included;
+            }).show().length;
         }
-        $('strong').text(count);
+        $('#item_count').text(count);
     });
     $('#searchbox').focus(function(){
         $(this).select();
     });
 
-    $('body').dblclick(function(){
-        focus();
+    $("body").keypress(function(e){
+        var keycode = e.keyCode;
+        if(keycode == 27){ // Esc
+            focus();
+            return false; // break from this scope.
+        }
     });
 
-    $('strong').text(get_all_count());
+    $('#item_count').text(get_all_count());
     clear();
     focus();
 });
@@ -35,6 +52,24 @@ function focus(){
 }
 function get_all_count(){
     return $('#search_target_area .bookmark-entry').show().length;
+}
+function split_search_query(searchbox_value){
+    var delim = ' ';
+    var keywords = searchbox_value.split(delim);
+
+    // keywords = ['keyword1', '', 'keyword2']
+    //                         ^^
+    //                       remove this dusts.
+    //
+    for(var i=0; i<keywords.length; i++){
+      var v = keywords[i];
+      if(v==='' || v.indexOf(delim)!==-1){
+        keywords.splice(i, 1);
+        i = i - 1; // Consider the shift of the rest elements.
+      }
+    }
+
+    return keywords;
 }
 </script>
 
@@ -48,18 +83,18 @@ li{
 </head>
 <body>
 <input id="searchbox" type="text" size="20">
-<p>Result:<strong></strong> items</p>
+<p>Result:<strong id="item_count"></strong> items</p>
 <hr>
 <div id="search_target_area">
 <h1>Search</h1>
 <li>Google系</li>
-<li class="bookmark-entry"><a href="https://www.google.co.jp/">Google(ja)</a> nihongo japanese google(ja)</li>
-<li class="bookmark-entry"><a href="https://www.google.co.jp/webhp?hl=en">Google(en)</a> eigo english google(en)</li>
-<li class="bookmark-entry"><a href="https://www.yahoo.co.jp/">Yahoo! Japan</a>  yahoo! japan</li>
-<li class="bookmark-entry"><a href="https://twitter.com/search">Twitter Search</a>  twitter search</li>
+<li class="bookmark-entry"><a href="https://www.google.co.jp/">Google(ja)</a> nihongo japanese</li>
+<li class="bookmark-entry"><a href="https://www.google.co.jp/webhp?hl=en">Google(en)</a> eigo english</li>
+<li class="bookmark-entry"><a href="https://www.yahoo.co.jp/">Yahoo! Japan</a> </li>
+<li class="bookmark-entry"><a href="https://twitter.com/search">Twitter Search</a> </li>
 <h1>My Accounts</h1>
-<li class="bookmark-entry"><a href="https://github.com/stakiran">GitHub</a> gh github</li>
-<li class="bookmark-entry"><a href="http://qiita.com/sta">Qiita</a>  qiita</li>
+<li class="bookmark-entry"><a href="https://github.com/stakiran">GitHub</a> gh</li>
+<li class="bookmark-entry"><a href="http://qiita.com/sta">Qiita</a> </li>
 </div>
 </body>
 </html>
